@@ -622,11 +622,11 @@ status_code updateUser(User *userList, Family *familyList, User* user){
         // Searching in Family and updating income
         int found  = 0;
         while(familyptr != NULL && !found){
-            for(int i=0 ; familyptr ->members[i] != NULL && !found ; i++){
+            for(int i=0 ; i < familyptr -> No_members && !found ; i++){
                 if(familyptr -> members[i] -> id == user -> id){
                     familyptr -> family_income = (familyptr -> family_income) - prev_income + new_income;
                     found = 0;
-                    printf("Income of Family having ID ; %d updated \n", familyptr -> family_id);
+                    printf("Income of Family having ID : %d updated \n", familyptr -> family_id);
                 }
             }
             familyptr = familyptr -> next;
@@ -809,7 +809,7 @@ status_code updateExpense(Expense* expenseList, Family* familyList, Expense* exp
         float prevExpense = temp -> expense_amount;
 
         // Updating the Expense record
-        printf("Enter the New Expense Amount");
+        printf("Enter the New Expense Amount: ");
         scanf("%f",&temp -> expense_amount);
         int category;
         printf("Choose the New Expense Category : \n(1) for Travel \n (2) for Leisure \n (3) for Rent \n (4) for Food \n (5) for Others \n  Enter here: ");
@@ -829,7 +829,7 @@ status_code updateExpense(Expense* expenseList, Family* familyList, Expense* exp
         else{
             strcpy(temp->category,"Others");
         }
-        printf("Enter the New date of The Expense In dd mm yyyy Format");
+        printf("Enter the New date of The Expense In dd mm yyyy Format: ");
         scanf("%d%d%d",&temp->date.day,&temp->date.month,&temp->date.year);
         printf("Expense Record Changed for ID : %d \n", temp -> expense_id);
 
@@ -839,15 +839,11 @@ status_code updateExpense(Expense* expenseList, Family* familyList, Expense* exp
             for(int i = 0; i < familyptr -> No_members && !found; i++){
                 if(familyptr->members[i]->id == user_id){
                     found = 1;
-                }
-                if(found == 1){
                     familyptr -> family_expense = familyptr -> family_expense + (temp->expense_amount - prevExpense);
                     printf("Family Details updated for ID : %d \n", familyptr -> family_id);
                 }
-                else{
-                    familyptr = familyptr->next;
-                }
             }
+            familyptr = familyptr -> next;
         }
     }
     return sc;
@@ -1303,7 +1299,7 @@ int main(){
         printf("2. Add an expense \n");
         printf("3. Update individual details (will affect in family also) \n");
         printf("4. Delete individual details (will affect in family also) \n");
-        printf("5. Update  familyly details \n");
+        printf("5. Update  familly details \n");
         printf("6. Delete a family details \n");
         printf("7. Update an expense \n");
         printf("8. Delete an expense \n");
