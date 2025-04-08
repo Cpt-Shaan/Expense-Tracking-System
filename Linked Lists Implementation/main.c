@@ -1,4 +1,4 @@
-// Prototype - 1 DSPD-II Assignment 1
+// Expense Tracking System using B-Trees
 
 #include <stdio.h>
 #include <stdlib.h>
