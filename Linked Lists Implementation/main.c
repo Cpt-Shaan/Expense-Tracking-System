@@ -1,4 +1,4 @@
-// Expense Tracking System using B-Trees
+// Expense Tracking System using Linked Lists
 
 #include <stdio.h>
 #include <stdlib.h>
