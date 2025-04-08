@@ -1370,7 +1370,8 @@ status_code deleteFamily(userTreeNode** userptr, familyTreeNode** familyptr, exp
         }
         if(choice && flag){
             // Deleting all expenses of all users first
-            for(int i=0 ; i<family -> num_members ; i++){
+	    int num_members = family -> num_members;
+            for(int i=0 ; i<num_members ; i++){
                 int done = 0;
                 while(!done){
                     expense_id = findFirstExpenseByUserId(expense_root,family->users[i]->user_id);
@@ -1714,7 +1715,7 @@ void findIndividualExpenses(expenseTreeNode* expense_root, int user_id, float ex
                 if(strcmp("Travel",expense_root->keys[i]->category) == 0){
                     expenses[0] += expense_root->keys[i]->expense_amount;
                 }
-                else if(strcmp("Leiusre",expense_root->keys[i]->category) == 0){
+                else if(strcmp("Leisure",expense_root->keys[i]->category) == 0){
                     expenses[1] += expense_root->keys[i]->expense_amount;
                 }
                 else if(strcmp("Rent",expense_root->keys[i]->category) == 0){
