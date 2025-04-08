@@ -1,4 +1,4 @@
-7 Miller 17 18 0 0
+7 Kohli 17 18 0 0
 1 Vora 1 2 3 4
 44 Hamilton 44 0 0 0
 8 Davis 19 20 0 0
